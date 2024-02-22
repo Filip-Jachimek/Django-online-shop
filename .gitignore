@@ -1,8 +1,10 @@
 # ignore ALL .log files
 *.log
+db.sqlite3
 
 
 # ignore All files in ANY directory named temp
 temp/
 # ignore ALl files in env/
-env/
+env/"__pycache__" 
+"*.pyc" 
