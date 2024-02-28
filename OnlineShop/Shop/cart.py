@@ -14,3 +14,5 @@ class CartProduct(models.Model):
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE) # cart to which product belongs
     figure = models.ForeignKey(Figure, on_delete=models.CASCADE) # figure in the cart
     quantity = models.IntegerField() # quantity of the product in the cart
+
+    

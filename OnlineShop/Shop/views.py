@@ -15,13 +15,17 @@ class ImageViewSet(viewsets.ModelViewSet):
     queryset = Figure.objects.all()
     serializer_class = FigureSerializer
 
+import logging
+
+logger = logging.getLogger(__name__)
 
 class CartViewSet(viewsets.ModelViewSet):
     queryset = Cart.objects.all()
     serializer_class = CartSerializer
 
     def add_to_cart(self, request, pk=None):
-        figure_id=request.data.get(figure_id)
+        figure_id = request.data.get('figure_id')
+        logger.debug(f"Received request to add figure with ID {figure_id} to cart.")
         quantity = request.data.get('quantuty', 1)
 
         if not figure_id:
@@ -42,6 +46,8 @@ class CartViewSet(viewsets.ModelViewSet):
     
     def remove_from_cart(self, request, pk=None):
         cart_product_id = request.data.get('cart_product_id')
+        logger.debug(f"Received request to remove cart product with ID {cart_product_id} from cart.")
+
         
         if not cart_product_id:
             return Response({'error': 'Cart product ID is required'}, status=400)
@@ -56,6 +62,7 @@ class CartViewSet(viewsets.ModelViewSet):
 
     def update_cart_product(self, request, pk=None):
         cart_product_id = request.data.get('cart_product_id')
+        logger.debug(f"Received request to update cart product with ID {cart_product_id}.")
         quantity = request.data.get('quantity', 1)
         
         if not cart_product_id:

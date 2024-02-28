@@ -44,7 +44,7 @@ class Figure(models.Model):
         # add more factions as needed
     }
     faction = models.CharField(max_length=100, choices=FACTION_CHOICES)
-    height_cm = models.FloatField() # heigh of figure
+    height_cm = models.FloatField(default=0.0) # heigh of figure
     image = models.ImageField(upload_to='figurines', blank=True)
 
 
