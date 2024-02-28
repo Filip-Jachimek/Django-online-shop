@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'Shop',
+    'Shop.tests',
 ]
 
 MIDDLEWARE = [
@@ -101,6 +102,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
+TEST_RUNNER = 'django.test.runner.DiscoverRunner'
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/

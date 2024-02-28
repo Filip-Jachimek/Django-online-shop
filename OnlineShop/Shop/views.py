@@ -6,8 +6,6 @@ from .customer import Customer
 from .serializers import FigureSerializer, CartSerializer, CartProductSerializer, CustomerSerializer
 from django.http import HttpResponse
 
-def home_page(request):
-    return HttpResponse("<html><title>To-Do lists</title></html>")
 
 class FigureViewSet(viewsets.ModelViewSet):
     queryset = Figure.objects.all()
